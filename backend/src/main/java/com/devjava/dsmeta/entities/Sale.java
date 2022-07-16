@@ -9,9 +9,11 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name= "tb_sales")
+@Table(name = "tb_sales")
 public class Sale {
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String sellerName;
 	private Integer visited;
@@ -20,16 +22,12 @@ public class Sale {
 	private LocalDate date;
 	
 	public Sale() {
-		
 	}
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	public Long getId() {
 		return id;
 	}
 
-	
 	public void setId(Long id) {
 		this.id = id;
 	}
@@ -73,7 +71,4 @@ public class Sale {
 	public void setDate(LocalDate date) {
 		this.date = date;
 	}
-	 
-	
-	
 }

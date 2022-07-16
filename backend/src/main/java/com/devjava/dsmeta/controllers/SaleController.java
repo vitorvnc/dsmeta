@@ -18,7 +18,7 @@ import com.devjava.dsmeta.services.SmsService;
 @RestController
 @RequestMapping(value = "/sales")
 public class SaleController {
-	
+
 	@Autowired
 	private SaleService service;
 	
@@ -27,8 +27,8 @@ public class SaleController {
 	
 	@GetMapping
 	public Page<Sale> findSales(
-			@RequestParam(value="minDate", defaultValue = "")String minDate,
-			@RequestParam(value="maxDate", defaultValue = "")String maxDate,
+			@RequestParam(value="minDate", defaultValue = "") String minDate, 
+			@RequestParam(value="maxDate", defaultValue = "") String maxDate, 
 			Pageable pageable) {
 		return service.findSales(minDate, maxDate, pageable);
 	}
@@ -37,5 +37,4 @@ public class SaleController {
 	public void notifySms(@PathVariable Long id) {
 		smsService.sendSms(id);
 	}
-
 }
